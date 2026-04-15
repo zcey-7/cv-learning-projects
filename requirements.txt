@@ -1,0 +1,14 @@
+# 核心依赖
+ultralytics>=8.0.0        # YOLOv8 目标检测/姿态估计/分割
+opencv-python>=4.8.0      # 图像读取与可视化
+numpy>=1.24.0             # 数值计算
+
+# 推理部署
+onnxruntime>=1.16.0       # ONNX CPU 推理（无需 GPU）
+
+# 姿态估计（新版 Tasks API）
+mediapipe>=0.10.30        # MediaPipe Pose Landmarker
+
+# 可选：GPU 加速推理（需要 NVIDIA 显卡）
+# onnxruntime-gpu>=1.16.0
+# tensorrt（需单独从 NVIDIA 官网安装）

@@ -1,0 +1,13 @@
+train: D:/internship_learn_yolo/train/images
+val: D:/internship_learn_yolo/valid/images
+test: D:/internship_learn_yolo/test/images
+
+nc: 1
+names: ['helmet']
+
+roboflow:
+  workspace: testhelmetdetection
+  project: hard-hat-workers-xn7fm
+  version: 6
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/testhelmetdetection/hard-hat-workers-xn7fm/dataset/6

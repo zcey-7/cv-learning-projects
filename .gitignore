@@ -1,0 +1,28 @@
+# ===== 模型权重（体积大，不上传）=====
+*.pt
+*.onnx
+*.engine
+*.task
+*.trt
+
+# ===== 视频和图片测试文件 =====
+*.mp4
+*.avi
+
+# ===== 训练输出（体积巨大）=====
+runs/
+
+# ===== Python 缓存 =====
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
+
+# ===== IDE 配置 =====
+.vscode/
+.idea/
+*.swp
