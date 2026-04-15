@@ -5,7 +5,7 @@ import numpy as np
 from ultralytics import YOLO
 
 
-model = YOLO('runs/detect/train/weights/best.onnx', task='detect')
+model = YOLO(r'D:\internship_learn_yolo\runs\detect\train\weights\best.onnx', task='detect')
 
 cap = cv2.VideoCapture(0) 
 

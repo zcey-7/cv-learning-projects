@@ -5,7 +5,7 @@ import time
 
 
 
-model_path = 'runs/detect/train/weights/best.onnx'
+model_path = r"D:\internship_learn_yolo\runs\detect\train\weights\best.onnx"
 session = ort.InferenceSession(model_path)
 
 input_name = session.get_inputs()[0].name

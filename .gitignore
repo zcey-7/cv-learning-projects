@@ -5,9 +5,17 @@
 *.task
 *.trt
 
+# ===== 训练数据集（从 Roboflow 下载，不上传）=====
+train/
+valid/
+test/
+
 # ===== 视频和图片测试文件 =====
 *.mp4
 *.avi
+*.jpg
+*.jpeg
+*.png
 
 # ===== 训练输出（体积巨大）=====
 runs/
@@ -16,7 +24,6 @@ runs/
 __pycache__/
 *.pyc
 *.pyo
-.pytest_cache/
 
 # ===== 系统文件 =====
 .DS_Store
@@ -25,4 +32,3 @@ Thumbs.db
 # ===== IDE 配置 =====
 .vscode/
 .idea/
-*.swp

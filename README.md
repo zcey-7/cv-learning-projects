@@ -33,12 +33,11 @@
 **功能：**
 - 使用 MediaPipe PoseLandmarker 提取人体 33 个关键点（含 Z 轴深度）
 - 基于三维向量夹角计算膝关节角度，精度不受正面/侧面角度影响
-- 有限状态机实现深蹲计数：`Stand → Squatting → Stand`（膝角阈值 100°/160°）
+- 有限状态机实现深蹲计数：Stand → Squatting → Stand（膝角阈值 100°/160°）
 - 实时可视化：角度数值、计数 Counter、骨骼连线叠加渲染
 
 **相关文件：**
 - `app_pose.py` — 主程序
-- `pose_landmarker.task` — MediaPipe 模型权重（需自行下载，见下方说明）
 
 ---
 
@@ -66,10 +65,10 @@ pip install -r requirements.txt
 
 ### 2. 下载模型权重
 
-| 模型 | 用途 | 下载命令 |
+| 模型 | 用途 | 说明 |
 |---|---|---|
 | `yolov8n.pt` | 训练起点 | 运行 `train.py` 时自动下载 |
-| `pose_landmarker.task` | 姿态估计 | 见下方 |
+| `pose_landmarker.task` | 姿态估计 | 见下方命令 |
 | `FastSAM-s.pt` | 实例分割 | 运行 `app_segment.py` 时自动下载 |
 
 下载 MediaPipe 姿态模型：
@@ -81,7 +80,12 @@ urllib.request.urlretrieve(
 )
 ```
 
-### 3. 运行各模块
+### 3. 数据集
+
+安全帽检测数据集来自 Roboflow，请自行下载并按 `data.yaml` 中的路径放置：
+[Hard Hat Workers Dataset](https://universe.roboflow.com/testhelmetdetection/hard-hat-workers-xn7fm)
+
+### 4. 运行各模块
 
 ```bash
 # 训练安全帽检测模型
@@ -93,12 +97,10 @@ python app_geofence.py
 # 电子围栏（实时摄像头）
 python app_video_geofence.py
 
-# 深蹲计数（视频文件）
-# 把视频文件放到项目根目录，修改 app_pose.py 第51行的文件名
+# 深蹲计数（将视频放到根目录，修改 app_pose.py 第51行文件名）
 python app_pose.py
 
-# 实例分割
-# 把图片命名为 test_sam.jpg 放到根目录
+# 实例分割（将图片命名为 test_sam.jpg 放到根目录）
 python app_segment.py
 ```
 
@@ -107,7 +109,7 @@ python app_segment.py
 ## 环境要求
 
 - Python 3.10 ~ 3.13
-- 推荐 GPU：任意 NVIDIA 显卡（CPU 也可运行，速度较慢）
+- 推荐 GPU：任意 NVIDIA 显卡（CPU 也可运行）
 - TensorRT 导出需要 NVIDIA 显卡 + TensorRT 安装
 
 ---
@@ -115,7 +117,7 @@ python app_segment.py
 ## 目录结构
 
 ```
-internship_learn_yolo/
+cv-learning-projects/
 ├── train.py                 # 模型训练
 ├── export_onnx.py           # 导出 ONNX
 ├── export_trt.py            # 导出 TensorRT

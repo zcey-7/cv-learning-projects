@@ -6,7 +6,7 @@ from ultralytics import YOLO
 
 # 1. 加载我们脱离了 PyTorch 训练环境的轻量级 ONNX 模型！
 # 注意：换成你真实的 best.onnx 路径
-model = YOLO('runs/detect/train/weights/best.onnx', task='detect')
+model = YOLO(r'D:\internship_learn_yolo\runs\detect\train\weights\best.onnx', task='detect')
 
 # 2. 定义危险区域（多边形的顶点坐标 [x, y]）
 # 这里我随便画了一个四边形，你可以根据你的图片实际情况去修改这些坐标
